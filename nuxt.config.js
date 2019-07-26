@@ -1,6 +1,19 @@
 
 export default {
   mode: 'universal',
+
+  generate: {
+    routes: [
+      '/projects/project-one',
+      '/projects/project-two',
+      '/projects/project-three',
+      '/projects/project-four',
+      '/projects/project-five',
+      '/projects/project-six',
+      '/projects/project-seven',
+      '/projects/project-eight'
+    ]
+  },
   /*
   ** Headers of the page
   */
