@@ -1,0 +1,145 @@
+
+/* 
+PXL Company Reset -- covers resets not included in Meyer Reset
+*/
+
+/* $box-sizing - https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+    apply a natural box layout model to all elements, but allowing components to change
+*/
+html { // read about it.
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    // cursor reset - helps with some 'blinky' cursor behavior as it needlessly changes while surfing around
+    cursor: default;
+}
+
+// for Vue Projects
+#app {
+    &[v-cloak] {
+        display: none;
+    }
+}
+  
+a { // almost ALL links are actually big images or blocks of text - so this is a reasonable default
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+  
+p, h1, h2, h3, h4 {
+    // sometimes there are actually inline links
+    a {
+        display: initial; // well - 'inline' .. but should be inline-block, right?
+    }
+}
+  
+article p a {
+    // later... for long writing? Maybe news?
+    // sometimes you need classic underline links - mostly only in articles
+    display: initial;
+    text-decoration: initial;
+    color: initial;
+}
+  
+figure {
+    // all images should be in figures.
+    // this gives us a clean way to control image sizing
+    // the overflow is for when you want to change the shape
+    overflow: hidden;
+    // use 'max-width' on whatever class you put on the figure.image
+}
+
+// $svgs
+figure * {
+    fill: currentColor;
+}
+  
+img figure {
+    // any image inside a figure should respect it's parent's size
+    // this also helps us with doubling image sizes for retina screens
+    // then after - squizing it down... it's crisp
+    display: block;
+    width: 100%;
+    height: auto;
+}
+  
+img {
+    user-select: none; // ugly gray boxes are no fun
+}
+   
+svg * {
+    fill: currentColor;
+}
+
+figure svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    // make sure svg's behave like img in a figure
+}
+    
+em {
+    // "Emphasis" (not 'italic' by nature but an expected default)
+    font-style: italic; // note that just because you say 'italic' doesn't mean an italic version of that font is available to you. The browser will fake it - by putting it at an angle... and that isn't very cool...
+}
+  
+strong {
+    // "Strong Emphasis" (not 'bold' by nature but an expected default)
+    font-weight: 700;
+}
+
+input {
+    border: 1px solid #f4f4f4;
+}
+  
+input:focus{
+    outline: none; // think about this - in regards to accessibility
+}
+  
+// remove mobile safari touch highlighting / (replace with your own using active)
+* {
+    -webkit-tap-highlight-color: transparent; /* for remove highlight */
+}
+  
+code {
+    cursor: text;
+}
+  
+// note: textarea and input[type="text"] already receive "cursor: text" via browsers' base stylesheets 
+a,
+label,
+button, 
+input[type="radio"], 
+input[type="submit"],
+input[type="button"], 
+input[type="checkbox"] {
+    cursor: pointer;
+}
+  
+button[disabled], 
+input[disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"][readonly] {
+    pointer-events: none;
+}
+
+/** ACCESSIBILITY **/
+// https://a11yproject.com/posts/how-to-hide-content/
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}

@@ -1,0 +1,157 @@
+/** BREAKPOINTS **/
+// do NOT try to match these to devices
+$bp-0: 0px;
+$bp-1: 480px;
+$bp-2: 640px;
+$bp-3: 767px; 
+$bp-4: 1024px;
+$bp-5: 1300px;
+$bp-6: 1560px;
+// previous breakpoint shortcut
+$bp-1-1: $bp-1 - 1px;
+$bp-2-1: $bp-2 - 1px;
+$bp-3-1: $bp-3 - 1px;
+$bp-4-1: $bp-4 - 1px;
+$bp-5-1: $bp-5 - 1px;
+$bp-6-1: $bp-6 - 1px;
+
+/** BREAKPOINT MIXIN **/
+// Shortcut mixin for calling full breakpoint
+@mixin bp($point) { 
+  @if $point == 1 {
+    @media (min-width: $bp-1) { @content; }
+  }
+  @else if $point == 0 {
+    @media (min-width: $bp-0) { @content; }
+  }
+  @else if $point == 2 {
+    @media (min-width: $bp-2) { @content; }
+  }
+  @else if $point == 3 {
+    @media (min-width: $bp-3)  { @content; }
+  }
+  @else if $point == 4 {
+    @media (min-width: $bp-4)  { @content; }
+  }
+  @else if $point == 5 {
+    @media (min-width: $bp-5)  { @content; }
+  }
+  @else if $point == 6 {
+    @media (min-width: $bp-6)  { @content; }
+  }
+/* USAGE
+
+.thing {
+color: red;
+@include bp(1) {
+    color: blue;
+}
+}
+
+*/
+
+/** BREAKPOINT OVERRIDES **/
+// most of these will never be used... but - they also don't hurt anything by being here
+// only use these for drastic moments where you'll have to override many things - 
+// always choose to cascade instead of possible
+@else if $point == '0-1' {
+@media (min-width: $bp-0) and (max-width: $bp-1-1) { @content; }
+}
+@else if $point == '0-2' {
+@media (min-width: $bp-0) and (max-width: $bp-2-1) { @content; }
+}
+@else if $point == '0-3' {
+@media (min-width: $bp-0) and (max-width: $bp-3-1) { @content; }
+}
+@else if $point == '0-4' {
+@media (min-width: $bp-0) and (max-width: $bp-4-1) { @content; }
+}
+@else if $point == '0-5' {
+@media (min-width: $bp-0) and (max-width: $bp-5-1) { @content; }
+}
+@else if $point == '0-6' {
+@media (min-width: $bp-0) and (max-width: $bp-6-1) { @content; }
+}
+
+
+@else if $point == '1-2' { // not used often... should be enough...
+@media (min-width: $bp-1) and (max-width: $bp-2-1) { @content; }
+}
+@else if $point == '1-3' {
+@media (min-width: $bp-1) and (max-width: $bp-3-1) { @content; }
+}
+@else if $point == '1-4' {
+@media (min-width: $bp-1) and (max-width: $bp-4-1) { @content; }
+}
+@else if $point == '1-5' {
+@media (min-width: $bp-1) and (max-width: $bp-5-1) { @content; }
+}
+@else if $point == '1-6' {
+@media (min-width: $bp-1) and (max-width: $bp-6-1) { @content; }
+}
+
+
+@else if $point == '2-3' {
+@media (min-width: $bp-2) and (max-width: $bp-3-1) { @content; }
+}
+@else if $point == '2-4' {
+@media (min-width: $bp-2) and (max-width: $bp-4-1) { @content; }
+}
+@else if $point == '2-5' {
+@media (min-width: $bp-2) and (max-width: $bp-5-1) { @content; }
+}
+@else if $point == '2-6' {
+@media (min-width: $bp-2) and (max-width: $bp-6-1) { @content; }
+}
+
+
+@else if $point == '3-4' {
+@media (min-width: $bp-3) and (max-width: $bp-4-1) { @content; }
+}
+@else if $point == '3-5' {
+@media (min-width: $bp-3) and (max-width: $bp-5-1) { @content; }
+}
+@else if $point == '3-6' {
+@media (min-width: $bp-3) and (max-width: $bp-6-1) { @content; }
+}
+
+@else if $point == '4-5' {
+@media (min-width: $bp-4) and (max-width: $bp-5-1) { @content; }
+}
+@else if $point == '4-6' {
+@media (min-width: $bp-4) and (max-width: $bp-6-1) { @content; }
+}
+
+  /* USAGE
+
+  .thing {
+    color: red;
+    @include bp("1-2") {
+      color: blue;
+    }
+  }
+
+  */
+
+}
+
+/** CUSTOM BREAKPOINTS **/
+@mixin bps($max-width-number) { 
+  // sometimes you need a specific breakpoint / and the general ones don't cut it.
+  @media (min-width: $max-width-number + 'px') { @content; }
+  // you could just write it out / but this will make it easier to track it down later.
+}
+
+@mixin min-height() {
+  @media (min-height: $height-a) { @content; }
+}
+/* USAGE
+
+.thing {
+  color: red;
+  @include bps(870) { // magic number $shame
+    color: blue;
+  }
+}
+
+*/

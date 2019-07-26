@@ -1,0 +1,72 @@
+/** COLORS **/
+
+// Standard
+$black: #000000;
+$white: #FFFFFF;
+
+// Programatic Shades of Gray
+$gray: #666666;
+$gray-lighter: lighten($gray, 40%); // just showing a progromatic way
+$gray-light: lighten($gray, 20%); // just showing a progromatic way
+$gray-dark: darken($gray, 30%);
+
+// Project Specific
+$divider: $gray;
+$highlight: #EDFF86;
+
+/** LAYOUT **/
+
+// Standard Padding
+$pad: 10px;
+// set based on project
+$v: $pad*2; 
+$h: $pad*1;
+
+/** LAYOUT MIXINS **/
+@mixin flexbox($d, $w, $j, $a){
+   display: flex;
+   flex-direction: $d;
+   flex-wrap: $w;
+   justify-content: $j;
+   align-items: $a;
+}
+
+/** Positioning: z-index **/
+$bottom: -10;
+$back: -1;
+$base: 0;
+$middle: 1;
+$front: 2;
+$top: 10;
+
+$z-layers: (
+   'bottom': $bottom,
+   'back': $back,
+   'base': $base,
+   'middle': $middle,
+   'front': $front,
+   'top': $top,
+
+   'modal': (
+      'tooptip': 5002,
+      'content': 5001,
+      'overlay': 5000
+   )
+);
+
+@function z($layer) {
+   @return map-get($z-layers, $layer);
+}
+
+/** USAGE
+ ** reference: https://www.sitepoint.com/better-solution-managing-z-index-sass/
+
+   z-index: z('top');
+
+   or 
+
+   z-index: z('modal', 'content');
+
+**/
+
+

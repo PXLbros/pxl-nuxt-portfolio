@@ -1,0 +1,72 @@
+/** BUTTONS **/
+// Reset `button` and button-style `input` default styles
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background: none;
+    border: 0;
+    color: inherit;
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    cursor: pointer;
+    
+    -webkit-appearance: button; /* for input */
+    -webkit-user-select: none; /* for button */
+       -moz-user-select: none;
+        -ms-user-select: none;
+
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+}
+
+/** BUTTONS DEFAULTS **/
+@mixin standard-button() {
+    position: relative;
+    background: transparent;
+    padding: $pad $pad*1.5;
+    width: auto;
+    text-align: center;
+    border: 1px solid $black;
+    display: inline-block;
+    cursor: pointer;
+
+    @include small-icons();
+
+    .shim {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon {
+        margin-left: $pad;
+    }
+}
+
+@mixin light-button() {
+  @include standard-button();
+  background: transparent;
+  color: $white;
+  border-color: $white;
+  @include hover-setup() {
+    //
+    &:before {
+      background: $white;
+    }
+  }
+  @include on-hover() {
+    color: $black;
+  }
+}

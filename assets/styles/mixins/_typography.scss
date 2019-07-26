@@ -1,0 +1,40 @@
+/** FONT MIXINS **/
+// short cuts for fonts and weights
+@mixin standard-font() {
+    font-family: "Georgia", serif;
+}
+@mixin title-font() {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 400;  
+}
+
+/** TYPE PATTERNS **/
+@mixin quiet-voice() {
+    font-size: 8px;
+}
+
+@mixin standard-voice() {
+    @include standard-font();
+    font-size: 16px; // please just use pxs.
+    line-height: 1.4; // no units on line-height
+    letter-spacing: 0.02em; // ems for letter-spacing 'kearning'
+    font-weight: 400; // no 'normal' and 'bold' - make sure your font supports this - or the browser will try and fake it - and it'll cause troubles for you
+}
+
+@mixin strong-voice() {
+    @include standard-font();
+    font-size: 25px;
+    @include bp(1) {
+        font-size: 30px
+    }
+}
+
+@mixin loud-voice() {
+    @include title-font();
+    font-size: 30px;
+    @include bp(1) {
+        font-size: 40px
+    }
+}
+
+

@@ -1,0 +1,44 @@
+/** RESETS **/
+@import 'resets/_meyer-reset';
+@import 'resets/_pxl';
+
+/** PROJECT SPECIFIC **/
+@import 'mixins/variables';
+@import 'mixins/typography';
+@import 'mixins/breakpoints';
+@import 'mixins/buttons';
+@import 'mixins/icons';
+@import 'mixins/forms';
+@import 'mixins/grid';
+@import 'mixins/article';
+
+main {
+  min-height: 100vh;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  @include loud-voice();
+  padding: $pad*2 0;
+}
+
+h2 {
+  @include standard-voice();
+  padding: $pad 0;
+}
+
+p {
+  @include standard-voice();
+}
+
+.inner-column {
+  width: 98%;
+  max-width: $bp-6;
+  padding: $pad;
+  margin-right: auto;
+  margin-left: auto;
+}

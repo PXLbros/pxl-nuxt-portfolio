@@ -1,0 +1,120 @@
+// you might not use these in the actual project 
+//  they are mostly just for authoring the styles here in this* project
+
+// $fonts
+@mixin standard-font() {
+    font-family: "Georgia", serif; 
+    // font-weight: 300;  
+}
+
+@mixin other-font() {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    // font-weight: 400;  
+}
+
+
+@mixin code-font() {
+    font-family: monospace;
+}
+
+// $rendering
+@mixin add-text-render() {
+    text-rendering: geometricPrecision;
+}
+
+@mixin remove-text-render() {
+    text-rendering: unset;
+}
+
+
+// $utilities
+@mixin ellipsis() {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// style guide colors
+$color: #009BD9;
+$color-light: lighten($color, 20%); // just showing a progromatic way
+$color-dark: darken($color, 30%);
+
+$highlight: #2DC06A;
+$highlight-light: lighten($highlight, 20%); // just showing a progromatic way
+$highlight-dark: darken($highlight, 30%);
+
+$alternate: #FC4239;
+$alternate-light: lighten($alternate, 20%); // just showing a progromatic way
+$alternate-dark: darken($alternate, 30%);
+
+// you don't need to use 'component' - but it's an idea... for scoping
+.component.swatches {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @include code-font();
+    .swatch {
+        flex-basis: 30%;
+        flex-grow: 1;
+        padding: $pad;
+    }
+    .black {
+        background: $black;
+        color: $white;
+    }
+    .white {
+        background: $white;
+        color: $black;
+    }
+    .gray {
+        background: $gray;
+    }
+    .gray-lighter {
+        background: $gray-lighter;
+    }
+    .gray-light {
+        background: $gray-light;
+    }
+    .gray-dark {
+        background: $gray-dark;
+        color: $gray;
+    }
+    .color {
+        background: $color;
+    }
+    .color-light {
+        background: $color-light;
+    }
+    .color-dark {
+        background: $color-dark;
+        color: $color;
+    }
+    .highlight {
+        background: $highlight;
+    }
+    .highlight-light {
+        background: $highlight-light;
+    }
+    .highlight-dark {
+        background: $highlight-dark;
+        color: $highlight;
+    }
+    .alternate {
+        background: $alternate;
+    }
+    .alternate-light {
+        background: $alternate-light;
+    }
+    .alternate-dark {
+        background: $alternate-dark;
+        color: $alternate;
+    }
+}
+
+.page-section-name {
+    .component.swatches {
+        // context specific component styles
+    }
+}
+

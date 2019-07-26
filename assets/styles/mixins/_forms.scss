@@ -1,0 +1,44 @@
+/** FORMS **/
+// $form reset
+// should be able to use search input
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: text;
+    appearance: text;
+}
+
+input { // $todo - sure up generic elements / reset them etc.
+    font-family: inherit;
+}
+
+form {
+    .field {
+        display: block; // <label> is inline by default
+        input[type=text],
+        input[type=number],
+        textarea {
+            background: transparent;
+            border-radius: 0;
+            padding: $pad;
+            width: 100%;
+            max-width: 100%; // for textarea mostly
+            color: $black;
+            @include standard-voice();
+            border: 0;
+            border-bottom: 1px solid $black;
+        }
+    }
+}
+
+/*
+
+how to build an input
+
+<label class="field" for="sheriff">
+    <div class="label"><span>Field label</span></div>
+    <input id="sheriff" type="text" />
+</label>
+
+*/

@@ -1,0 +1,50 @@
+
+// flex-box is still a little hard to get a perfect grid...
+
+
+// $grid (for now)
+@mixin standard-grid {
+    // used on .item-list - or whatever is the parent of .item
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .item {
+        width: 100%;
+    }
+    @include bp(1) {
+        .item {
+            width: 48%;
+            &:nth-of-type(2n + 2) {
+                margin-left: 4%;
+            }
+        }
+    }
+    @include bp(2) {
+        //
+        .item {
+            width: 32%;
+            margin-right: 2%;
+            &:nth-of-type(2n + 2) {
+                margin-left: 0;
+            }
+            &:nth-of-type(3n + 3) {
+                margin-right: 0;
+            }
+        }
+    }
+    @include bp(3) {
+    // this is a good example of when you might wish
+    // you were targeting in between break points
+    // since you have to override
+        .item {
+            width: 23.5%;
+            margin-right: 2%;
+            &:nth-of-type(3n + 3) {
+                margin-right: 2%;
+            }
+            &:nth-of-type(4n) {
+                margin-right: 0;
+            }
+        }
+    }
+}

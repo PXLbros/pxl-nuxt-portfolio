@@ -1,0 +1,78 @@
+
+// $editorial styles (in our case / for the legal pages)
+article {
+    //
+    h1 {
+        @include loud-voice();
+        text-transform: initial;
+        + p {
+            margin-top: $pad*4; // (paragraphs that follow h1 s)
+        }
+    }
+    h2 {
+        // type-pattern
+        + p {
+            margin-top: $pad*2;
+        }
+    }
+    h3 {
+        // type-pattern
+        text-transform: initial;
+        + p {
+            margin-top: $pad*2;
+        }
+        + ul {
+            margin-top: $pad*2;
+        }
+    }
+    p {
+        @include standard-voice();
+        max-width: 760px; // gotta cut it off man...
+        // maybe do that to lists too... because people don't want to read things that long
+        + p {
+            margin-top: $pad*2
+        }
+        + h2 {
+            margin-top: $pad*3;
+        }
+        + h3 {
+            margin-top: $pad*2;
+        }
+        a {
+            display: inline-block;
+            text-decoration: underline;
+            color: inherit;
+            &:hover {
+                color: inherit;
+            }
+        }
+    }
+    ul {
+        list-style: initial;
+        margin-left: 1rem;
+        margin-bottom: $pad*2;
+        text-transform: initial; // ?
+        li {
+            @include standard-voice();
+            margin-top: $pad*2;
+            a {
+                display: inline-block;
+                text-decoration: underline;
+                color: inherit;
+                &:hover {
+                    color: inherit;
+                }
+            }
+            ul {
+                list-style: circle;
+                margin-left: 1.2rem;
+            }
+        }
+        + h2 {
+            margin-top: $pad*3;
+        }
+        + h3 {
+            margin-top: $pad*3;
+        }
+    }
+}
