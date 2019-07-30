@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="inner-column">
-    <img src="http://placehold.it/1200x600" :alt="project.title">
+    <img src="https://placehold.it/1200x600" :alt="project.title">
 
     <h1 class="title">{{project.title}}</h1>
 

@@ -2,34 +2,28 @@
   <div class="inner-column">
     <h1 class="title">Projects</h1>
 
-    <div class="projects item-list">
-      <nuxt-link
-        class="item"
-        v-for="project in projects"
-        :to="{name: 'projects-slug', params: {slug: project.slug}}"
-        :key="project.slug"
-      >
-        <img class="item-img" src="http://placehold.it/1200x600" :alt="project.title">
-        <h2>{{project.title}}</h2>
-      </nuxt-link>
-    </div>
+    <GridComponent :items="projects"/>
   </div>
-
 </template>
 
 <script>
+import GridComponent from '~/components/GridComponent.vue'
+
 export default {
   head () {
     return {
       title: 'Projects | Portfolio Website',
-      description: 'Project page meta description',
       meta: [
+        { hid: 'description', name: 'description', content: 'Project page meta description' },
         { name: 'twitter:title', content: 'Projects | Portfolio Website'},
         { name: 'twitter:description', content: 'Projects page meta description'},
-        { name: 'twitter:image', content: 'http://placehold.it/1200x600'},
+        { name: 'twitter:image', content: 'https://placehold.it/1200x600'},
         { name: 'twitter:card', content: 'summary_large_image'}
       ]
     }
+  },
+  components: {
+    GridComponent
   },
   pageTransition: {
     name: 'test',

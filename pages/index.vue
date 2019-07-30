@@ -7,14 +7,13 @@
       <h2 class="subtitle">
         Portfolio website template
       </h2>
-      <div class="links">
-
-      </div>
+      <LayerComponent :items="projects"/>
     </div>
   </div>
 </template>
 
 <script>
+import LayerComponent from '~/components/LayerComponent.vue'
 
 export default {
   head () {
@@ -24,11 +23,19 @@ export default {
       meta: [
         { name: 'twitter:title', content: 'Portfolio Website'},
         { name: 'twitter:description', content: 'Home page meta description'},
-        { name: 'twitter:image', content: 'http://placehold.it/1200x600'},
+        { name: 'twitter:image', content: 'https://placehold.it/1200x600'},
         { name: 'twitter:card', content: 'summary_large_image'}
       ]
     }
   },
+  components: {
+    LayerComponent
+  },
+  computed: {
+    projects () {
+      return this.$store.state.projects.all.filter(project => project.isFeatured);
+    }
+  }
 }
 </script>
 
