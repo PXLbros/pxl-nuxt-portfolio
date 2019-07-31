@@ -11,31 +11,43 @@
 
 <script>
 export default {
-  head () {
-    return {
-      title: this.project.title,
-      description: this.project.content,
-      meta: [
-        { name: 'twitter:title', content: this.project.title},
-        { name: 'twitter:description', content: this.project.content},
-        { name: 'twitter:image', content: 'http://placehold.it/1200x600'},
-        { name: 'twitter:card', content: 'summary_large_image'}
-      ]
-    }
-  },
-  data() {
-    return {
-      slug: this.$route.params.slug
-    }
-  },
-  computed: {
-    project () {
-      return this.$store.state.projects.all.find(project => project.slug === this.slug)
+    head() {
+        return {
+            title: this.project.title,
+            description: this.project.content,
+            meta: [
+                {
+                    name: 'twitter:title',
+                    content: this.project.title
+                },
+                {
+                    name: 'twitter:description',
+                    content: this.project.content
+                },
+                {
+                    name: 'twitter:image',
+                    content: 'http://placehold.it/1200x600'
+                },
+                {
+                    name: 'twitter:card',
+                    content: 'summary_large_image'
+                }
+            ]
+        }
     },
-    relatedProjects () {
-      return this.$store.state.projects.all.filter(project => project.slug !== this.slug)
+    data() {
+        return {
+            slug: this.$route.params.slug
+        }
+    },
+    computed: {
+        project() {
+            return this.$store.state.projects.all.find(project => project.slug === this.slug)
+        },
+        relatedProjects() {
+            return this.$store.state.projects.all.filter(project => project.slug !== this.slug)
+        }
     }
-  }
 }
 </script>
 

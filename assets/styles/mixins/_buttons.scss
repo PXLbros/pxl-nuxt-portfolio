@@ -1,5 +1,6 @@
 /** BUTTONS **/
 // Reset `button` and button-style `input` default styles
+
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -14,22 +15,22 @@ button {
     overflow: visible;
     padding: 0;
     cursor: pointer;
-    
-    -webkit-appearance: button; /* for input */
-    -webkit-user-select: none; /* for button */
-       -moz-user-select: none;
-        -ms-user-select: none;
+    -webkit-appearance: button;
+    /* for input */
+    -webkit-user-select: none;
+    /* for button */
+    -moz-user-select: none;
+    -ms-user-select: none;
 
     &::-moz-focus-inner {
-      border: 0;
-      padding: 0;
+        border: 0;
+        padding: 0;
     }
 
     &:focus {
-      outline: 0;
+        outline: 0;
     }
 }
-
 /** BUTTONS DEFAULTS **/
 @mixin standard-button() {
     position: relative;
@@ -40,7 +41,6 @@ button {
     border: 1px solid $black;
     display: inline-block;
     cursor: pointer;
-
     @include small-icons();
 
     .shim {
@@ -54,19 +54,18 @@ button {
         margin-left: $pad;
     }
 }
-
 @mixin light-button() {
-  @include standard-button();
-  background: transparent;
-  color: $white;
-  border-color: $white;
-  @include hover-setup() {
-    //
-    &:before {
-      background: $white;
+    @include standard-button();
+    background: transparent;
+    color: $white;
+    border-color: $white;
+    @include hover-setup() {
+        //
+        &:before {
+            background: $white;
+        }
     }
-  }
-  @include on-hover() {
-    color: $black;
-  }
+    @include on-hover() {
+        color: $black;
+    }
 }

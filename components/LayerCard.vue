@@ -16,25 +16,25 @@
 
 <script>
 export default {
-  props: [ 'item' ]
+    props: ['item']
 }
 </script>
 
 <style lang="scss" scoped>
 .layer-card {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: $pad*10;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $pad*10;
 
-  &:nth-child(odd) {
-    flex-direction: row-reverse;
-  }
+    &:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
 }
 .card-image {
-  width: 60%;
+    width: 60%;
 }
 
 .card-text {
-  width: 35%;
+    width: 35%;
 }
 </style>

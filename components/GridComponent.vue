@@ -8,15 +8,15 @@
 import GridCard from '~/components/GridCard.vue'
 
 export default {
-  props: [ 'items' ],
-  components: {
-    GridCard
-  },
+    props: ['items'],
+    components: {
+        GridCard
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .grid-component {
-  @include standard-grid();
+    @include standard-grid();
 }
 </style>

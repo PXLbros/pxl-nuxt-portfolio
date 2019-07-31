@@ -7,10 +7,10 @@
 <script>
 import LayerCard from '~/components/LayerCard.vue'
 export default {
-  components: {
-    LayerCard
-  },
-  props: [ 'items' ]
+    components: {
+        LayerCard
+    },
+    props: ['items']
 }
 </script>
 

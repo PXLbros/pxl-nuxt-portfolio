@@ -9,12 +9,11 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
-  .footer-component {
+.footer-component {
     text-align: center;
-  }
+}
 </style>

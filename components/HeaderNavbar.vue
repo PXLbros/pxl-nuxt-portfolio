@@ -17,26 +17,25 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
-  .logo {
+.logo {
     padding: $pad 0;
-  }
-  .header-nav {
+}
+.header-nav {
     display: flex;
     justify-content: space-between;
-  }
-  .main-menu {
+}
+.main-menu {
     display: flex;
-  }
-  .menu-item {
+}
+.menu-item {
     padding: $pad;
 
     &:last-child {
-      padding-right: 0;
+        padding-right: 0;
     }
-  }
+}
 </style>
